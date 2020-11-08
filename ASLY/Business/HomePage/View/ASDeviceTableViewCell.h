@@ -10,13 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^IconIVTappedBlock)(void);
+
 @interface ASDeviceTableViewCell : UITableViewCell
 
 @property(nonatomic, strong) UILabel   * titleLbl ;
 
 @property(nonatomic, strong) UILabel   * connecStatusLbl ;
 
-@property(nonatomic, strong) UIImageView   * iconIV  ;
+@property(nonatomic, strong) UIButton   * iconIV  ;
+
+@property(nonatomic,copy) IconIVTappedBlock tappedBlock;
 
 
 @property(nonatomic,assign) BOOL isHiddenRightView ;

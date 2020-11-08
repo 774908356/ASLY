@@ -30,6 +30,11 @@
 		14B5FBAF2557B40B000DCAC2 /* homepage_hint_iv.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FBAE2557B40B000DCAC2 /* homepage_hint_iv.png */; };
 		14B5FBB42557B8BC000DCAC2 /* ASDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B5FBB32557B8BC000DCAC2 /* ASDeviceModel.m */; };
 		14B5FBBA2557BB42000DCAC2 /* ASDeviceDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B5FBB92557BB42000DCAC2 /* ASDeviceDataManager.m */; };
+		14B5FBBE2557C840000DCAC2 /* ASDeviceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B5FBBD2557C840000DCAC2 /* ASDeviceDetailViewController.m */; };
+		14B5FBC22557CBB1000DCAC2 /* as_back_iv.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FBC02557CBB1000DCAC2 /* as_back_iv.png */; };
+		14B5FBC32557CBB1000DCAC2 /* as_next_iv.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FBC12557CBB1000DCAC2 /* as_next_iv.png */; };
+		14B5FBC62557D17F000DCAC2 /* as_xiasanjiao_iv.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FBC52557D17F000DCAC2 /* as_xiasanjiao_iv.png */; };
+		14B5FBCA2557E45A000DCAC2 /* ASModifyDeviceNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B5FBC92557E45A000DCAC2 /* ASModifyDeviceNameVC.m */; };
 		2BE52B33059DC990468AC675 /* Pods_ASLY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DF812CCF741374C3DEA75 /* Pods_ASLY.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +77,13 @@
 		14B5FBB32557B8BC000DCAC2 /* ASDeviceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASDeviceModel.m; sourceTree = "<group>"; };
 		14B5FBB82557BB42000DCAC2 /* ASDeviceDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASDeviceDataManager.h; sourceTree = "<group>"; };
 		14B5FBB92557BB42000DCAC2 /* ASDeviceDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASDeviceDataManager.m; sourceTree = "<group>"; };
+		14B5FBBC2557C840000DCAC2 /* ASDeviceDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASDeviceDetailViewController.h; sourceTree = "<group>"; };
+		14B5FBBD2557C840000DCAC2 /* ASDeviceDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASDeviceDetailViewController.m; sourceTree = "<group>"; };
+		14B5FBC02557CBB1000DCAC2 /* as_back_iv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = as_back_iv.png; sourceTree = "<group>"; };
+		14B5FBC12557CBB1000DCAC2 /* as_next_iv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = as_next_iv.png; sourceTree = "<group>"; };
+		14B5FBC52557D17F000DCAC2 /* as_xiasanjiao_iv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = as_xiasanjiao_iv.png; sourceTree = "<group>"; };
+		14B5FBC82557E45A000DCAC2 /* ASModifyDeviceNameVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASModifyDeviceNameVC.h; sourceTree = "<group>"; };
+		14B5FBC92557E45A000DCAC2 /* ASModifyDeviceNameVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASModifyDeviceNameVC.m; sourceTree = "<group>"; };
 		41C94350CFC737CCEC2D2F5B /* Pods-ASLY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASLY.release.xcconfig"; path = "Target Support Files/Pods-ASLY/Pods-ASLY.release.xcconfig"; sourceTree = "<group>"; };
 		54C46DCE9688D22BF8BB9D7A /* Pods-ASLY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASLY.debug.xcconfig"; path = "Target Support Files/Pods-ASLY/Pods-ASLY.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0DF812CCF741374C3DEA75 /* Pods_ASLY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASLY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +186,10 @@
 				14B5FBA825579462000DCAC2 /* View */,
 				1486B924255048ED00F127D8 /* ASHomePageViewController.h */,
 				1486B925255048ED00F127D8 /* ASHomePageViewController.m */,
+				14B5FBBC2557C840000DCAC2 /* ASDeviceDetailViewController.h */,
+				14B5FBBD2557C840000DCAC2 /* ASDeviceDetailViewController.m */,
+				14B5FBC82557E45A000DCAC2 /* ASModifyDeviceNameVC.h */,
+				14B5FBC92557E45A000DCAC2 /* ASModifyDeviceNameVC.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -206,6 +222,9 @@
 				141DD0EF2552D8C100A3A707 /* intro_background.png */,
 				141DD1022552F65E00A3A707 /* inputPassword_close_btn.png */,
 				14B5FBAE2557B40B000DCAC2 /* homepage_hint_iv.png */,
+				14B5FBC02557CBB1000DCAC2 /* as_back_iv.png */,
+				14B5FBC12557CBB1000DCAC2 /* as_next_iv.png */,
+				14B5FBC52557D17F000DCAC2 /* as_xiasanjiao_iv.png */,
 			);
 			path = Res;
 			sourceTree = "<group>";
@@ -325,6 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1486B91525503DDF00F127D8 /* LaunchScreen.storyboard in Resources */,
+				14B5FBC62557D17F000DCAC2 /* as_xiasanjiao_iv.png in Resources */,
+				14B5FBC32557CBB1000DCAC2 /* as_next_iv.png in Resources */,
 				141DD0ED2552D89D00A3A707 /* bluetooth.png in Resources */,
 				141DD0F02552D8C100A3A707 /* intro_background.png in Resources */,
 				1486B9352550549800F127D8 /* tabBar_homePage_selected.png in Resources */,
@@ -332,6 +353,7 @@
 				1486B93925505B2800F127D8 /* tabBar_Mine_selected.png in Resources */,
 				1486B91225503DDF00F127D8 /* Assets.xcassets in Resources */,
 				141DD1032552F65E00A3A707 /* inputPassword_close_btn.png in Resources */,
+				14B5FBC22557CBB1000DCAC2 /* as_back_iv.png in Resources */,
 				1486B9362550549800F127D8 /* tabBar_homePage.png in Resources */,
 				14B5FBAF2557B40B000DCAC2 /* homepage_hint_iv.png in Resources */,
 			);
@@ -389,6 +411,7 @@
 				14B5FBAB25579611000DCAC2 /* ASDeviceTableViewCell.m in Sources */,
 				1486B90725503DDB00F127D8 /* AppDelegate.m in Sources */,
 				1486B926255048ED00F127D8 /* ASHomePageViewController.m in Sources */,
+				14B5FBBE2557C840000DCAC2 /* ASDeviceDetailViewController.m in Sources */,
 				14B5FBB42557B8BC000DCAC2 /* ASDeviceModel.m in Sources */,
 				14B5FBBA2557BB42000DCAC2 /* ASDeviceDataManager.m in Sources */,
 				14AE9B04255198810087B4E1 /* ASFirstJoinVC.m in Sources */,
@@ -396,6 +419,7 @@
 				1486B92E25504C3A00F127D8 /* ASBaseTableBarVC.m in Sources */,
 				1486B91825503DDF00F127D8 /* main.m in Sources */,
 				141DD0F52552DEB800A3A707 /* ASBaseCellView.m in Sources */,
+				14B5FBCA2557E45A000DCAC2 /* ASModifyDeviceNameVC.m in Sources */,
 				1486B92B2550495600F127D8 /* ASMineViewController.m in Sources */,
 				1486B923255048C800F127D8 /* ASBaseViewController.m in Sources */,
 				141DD0FA2552F0BA00A3A707 /* HWTFCodeBView.m in Sources */,

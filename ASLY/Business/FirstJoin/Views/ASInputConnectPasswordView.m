@@ -38,9 +38,17 @@
                 weakSelf.hintLbl.text = @"" ;
             }else if (![weakSelf isNumText:inputText]){
                 weakSelf.hintLbl.text = @"请输入数字" ;
+            }else if (![inputText isEqualToString:weakSelf.rightPasswordStr] && inputText.length >= 6){
+                weakSelf.hintLbl.text = @"密码错误" ;
             }else{
                 weakSelf.hintLbl.text = @"" ;
             }
+            
+            if ([inputText isEqualToString:weakSelf.rightPasswordStr]) {
+                weakSelf.inputSuccess() ;
+                [weakSelf hidden] ;
+            }
+            
         } ;
     }
     return _inputView;

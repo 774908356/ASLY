@@ -31,11 +31,13 @@
     return _connecStatusLbl ;
 }
 
--(UIImageView *)iconIV{
+-(UIButton *)iconIV{
     if (!_iconIV) {
-        _iconIV = [UIImageView new] ;
+        _iconIV = [UIButton buttonWithType:UIButtonTypeCustom] ;
+        _iconIV.jk_touchAreaInsets = UIEdgeInsetsMake(10, 10, 10, 10) ;
+        [_iconIV addTarget:self action:@selector(iconIVTapped) forControlEvents:UIControlEventTouchUpInside] ;
+        [_iconIV setImage:[UIImageNamed(@"homepage_hint_iv") jk_imageScaledToSize:CGSizeMake(20, 20)] forState:UIControlStateNormal] ;
         _iconIV.hidden = YES ;
-        _iconIV.image = [UIImageNamed(@"homepage_hint_iv") jk_imageScaledToSize:CGSizeMake(20, 20)] ;
     }
     return _iconIV;
 }
@@ -86,6 +88,10 @@
         make.centerY.equalTo(self.iconIV) ;
     }] ;
     
+}
+
+-(void)iconIVTapped{
+    self.tappedBlock() ;
 }
 
 

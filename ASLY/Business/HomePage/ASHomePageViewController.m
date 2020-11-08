@@ -9,6 +9,8 @@
 #import "ASHomePageViewController.h"
 #import "ASDeviceTableViewCell.h"
 #import "ASDeviceDataManager.h"
+#import "ASDeviceDetailViewController.h"
+#import "ASInputConnectPasswordView.h"
 
  NSString * deviceCellStr = @"ASDeviceTableViewCell_homePage" ;
 
@@ -38,11 +40,23 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated] ;
+    self.tabBarController.tabBar.hidden = NO ;
+    
+    [self updateDataScourse] ;
+    [self.connecTableView reloadData] ;
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated] ;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _myListArr = [[ASDeviceDataManager shareManager] getMyDeviceArr] ;
-    _otherListArr = [[ASDeviceDataManager shareManager] getOtherDeviceArr] ;
+   
     
     [self.view addSubview:self.connecTableView] ;
     
@@ -52,6 +66,12 @@
     
     // Do any additional setup after loading the view.
 }
+
+-(void)updateDataScourse{
+    _myListArr = [[ASDeviceDataManager shareManager] getMyDeviceArr] ;
+    _otherListArr = [[ASDeviceDataManager shareManager] getOtherDeviceArr] ;
+}
+
 
 
 #pragma mark - TableViewDelegate
@@ -120,12 +140,74 @@
     cell.isHiddenRightView = !model.isMyDevice ;
     cell.titleLbl.text = model.deviceName ;
     cell.connecStatusLbl.text = model.connectionSuccess ? @"已连接" : @"未连接" ;
-    
+    WEAKSELF
+    cell.tappedBlock = ^{
+        [weakSelf goToDetailVCWithIndex:indexPath] ;
+    } ;
     return cell;
     
 }
 
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ASDeviceModel * model = nil ;
+    if (indexPath.section == 0) {
+        model = self.myListArr[indexPath.row] ;
+    }else{
+        model = self.otherListArr[indexPath.row] ;
+    }
+    
+    if (!model) return;
+    
+    if (model.isMyDevice) {
+        if (model.connectionSuccess) {
+            [self goToDetailVCWithIndex:indexPath] ;
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"连接不成功" message:[NSString stringWithFormat:@"请确定\"%@\"已打开且在感应距离内",model.deviceName] preferredStyle:UIAlertControllerStyleAlert] ;
+            UIAlertAction * action = [UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [alert dismissViewControllerAnimated:YES completion:^{
+                    
+                }] ;
+            }] ;
+            [alert addAction:action] ;
+            
+            [self presentViewController:alert animated:YES completion:^{
+                
+            }] ;
+            
+        }
+    }else{
+        WEAKSELF
+        ASInputConnectPasswordView * passwordView = [ASInputConnectPasswordView new] ;
+        passwordView.rightPasswordStr = model.devicePassword ;
+        [passwordView show] ;
+        passwordView.inputSuccess = ^{
+            model.isMyDevice = YES ;
+            model.connectionSuccess = YES ;
+            [weakSelf updateDataScourse] ;
+            [weakSelf.connecTableView reloadData] ;
+        } ;
+    }
+    
+    
+}
+
+-(void)goToDetailVCWithIndex:(NSIndexPath *)indexPath{
+    ASDeviceModel * model = nil ;
+    if (indexPath.section == 0) {
+        model = self.myListArr[indexPath.row] ;
+    }else{
+        model = self.otherListArr[indexPath.row] ;
+    }
+    
+    if (model && model.isMyDevice) {
+        ASDeviceDetailViewController * detailVC = [ASDeviceDetailViewController new] ;
+        detailVC.deviceModel = model ;
+        [self.tabBarController.tabBar setHidden:YES] ;
+        [self.navigationController pushViewController:detailVC animated:YES] ;
+    }
+    
+}
 
 /*
 #pragma mark - Navigation

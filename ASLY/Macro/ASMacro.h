@@ -11,6 +11,7 @@
 
 #import <JKCategories/JKCategories.h>
 #import <Masonry/Masonry.h>
+#import "ASDeviceDataManager.h"
 
 #define WEAKSELF_(x) typeof(x) __weak weakSelf = x;
 #define STRONGSELF_(x) typeof(x) __strong strongSelf = x;
@@ -35,6 +36,11 @@
 
 #define kScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define kScreenHeight [[UIScreen mainScreen] bounds].size.height
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kNavBarHeight 44.0
+#define kTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height > 20 ? 83 : 49)
+#define KAllTopNavBarHeight (kStatusBarHeight + kNavBarHeight)
+
 
 #define UIImageNamed(name) [UIImage imageNamed:name]
 

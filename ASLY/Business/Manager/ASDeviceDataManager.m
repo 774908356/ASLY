@@ -51,11 +51,9 @@
         }
     }
     
-    if (muArr.count) {
-        return muArr;
-    }
     
-    return  nil ;
+    
+    return  muArr ;
     
 }
 
@@ -67,11 +65,7 @@
         }
     }
     
-    if (muArr.count) {
-        return muArr;
-    }
-    
-    return  nil ;
+    return  muArr ;
 }
 
 

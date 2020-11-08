@@ -44,7 +44,7 @@
 
 -(NSArray *)listArr{
     if (!_listArr) {
-        _listArr = @[@"Shirley's Phone",@"Lin's iPhone11",@"Jessie",@"Marco12",@"Wuzexi"] ;
+        _listArr = [[ASDeviceDataManager shareManager] getOtherDeviceArr] ;
        // _listArr = @[@"Jessie",@"Marco12",@"Wuzexi"] ;
 
     }
@@ -128,8 +128,9 @@
             make.edges.equalTo(cellView) ;
         }] ;
         
+        ASDeviceModel * model = self.listArr[i] ;
         UILabel * titleLbl = [UILabel new] ;
-        titleLbl.text = self.listArr[i] ;
+        titleLbl.text = model.deviceName ;
         titleLbl.textColor = kNormalTextColor ;
         [btn addSubview:titleLbl] ;
         [titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -152,11 +153,17 @@
 
 
 -(void)cellBtnTapped:(UIButton *)btn{
-    NSString * selectedStr = self.listArr[btn.tag - 1104] ;
-    NSLog(@"点击了----->%@",selectedStr) ;
+    ASDeviceModel * model = self.listArr[btn.tag - 1104] ;
     
     ASInputConnectPasswordView * passwordView = [ASInputConnectPasswordView new] ;
+    passwordView.rightPasswordStr = model.devicePassword ;
     [passwordView show] ;
+    WEAKSELF
+    passwordView.inputSuccess = ^{
+        model.isMyDevice = YES ;
+        model.connectionSuccess = YES ;
+        [weakSelf jumpBtnTapped] ;
+    } ;
 
 }
 

@@ -11,7 +11,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^PasswordInputSuccessBlock)(void);
+
 @interface ASInputConnectPasswordView : UIView
+
+/** 正确密码 */
+@property(nonatomic,copy) NSString *rightPasswordStr;
+
+
+@property(nonatomic,copy) PasswordInputSuccessBlock inputSuccess;
 
 
 @property(nonatomic, strong) HWTFCodeBView   * inputView ;
