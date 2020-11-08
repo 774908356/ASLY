@@ -33,4 +33,10 @@
 #define kNormalTextColor kColorHex(0x8a8a8a)
 
 
+#define kScreenWidth [[UIScreen mainScreen] bounds].size.width
+#define kScreenHeight [[UIScreen mainScreen] bounds].size.height
+
+#define UIImageNamed(name) [UIImage imageNamed:name]
+
+
 #endif /* ASMacro_h */
