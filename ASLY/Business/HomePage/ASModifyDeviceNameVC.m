@@ -7,10 +7,14 @@
 //
 
 #import "ASModifyDeviceNameVC.h"
-
-@interface ASModifyDeviceNameVC ()
+#import "ASBaseCellView.h"
+#import <MBProgressHUD/MBProgressHUD.h>
+@interface ASModifyDeviceNameVC ()<UITextFieldDelegate>
 
 @property(nonatomic, strong) UIButton    * doneBtn ;
+
+
+@property(nonatomic,copy) NSString * inputString ;
 
 
 @end
@@ -19,9 +23,22 @@
 
 -(UIButton *)doneBtn{
     if (!_doneBtn) {
+        WEAKSELF
         _doneBtn = [UIButton buttonWithType:UIButtonTypeCustom] ;
+        [_doneBtn jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+            if (weakSelf.isModifyName) {
+                weakSelf.deviceModel.deviceName = weakSelf.inputString ;
+            }else{
+                weakSelf.deviceModel.devicePassword = weakSelf.inputString ;
+            }
+            [weakSelf.navigationController popViewControllerAnimated:YES] ;
+            [[UIApplication sharedApplication].delegate.window jk_makeToast:@"修改成功" duration:2. position:JKToastPositionCenter] ;
+        }] ;
+        _doneBtn.frame = CGRectMake(0, 0, 60, 20) ;
         [_doneBtn setTitle:@"完成" forState:UIControlStateNormal] ;
-        
+        _doneBtn.layer.masksToBounds = YES ;
+        _doneBtn.layer.cornerRadius = 5. ;
+        [self changedDoneBtnStatus:NO] ;
     }
     return _doneBtn;
 }
@@ -34,10 +51,89 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"名称修改" ;
+    self.title = self.isModifyName ? @"名称修改" : @"密码修改" ;
     UIBarButtonItem * cancelBtn = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancelItemBtnTapped)] ;
     self.navigationItem.leftBarButtonItem = cancelBtn ;
     
+    UIBarButtonItem * doneBarBtn = [[UIBarButtonItem alloc] initWithCustomView:self.doneBtn] ;
+    self.navigationItem.rightBarButtonItem = doneBarBtn ;
+    if (self.isModifyName) {
+        UILabel * topHintLbl = [UILabel new] ;
+        topHintLbl.textColor = [UIColor blackColor] ;
+        topHintLbl.font = kTEXT_FONT_BOLD_(14) ;
+        topHintLbl.text = @"名称" ;
+        [self.view addSubview:topHintLbl] ;
+        [topHintLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset(40) ;
+            make.top.offset(KAllTopNavBarHeight + 20) ;
+        }] ;
+        
+        ASBaseCellView * backView = [[ASBaseCellView alloc] initWithFrame:CGRectZero] ;
+        [self.view addSubview:backView] ;
+        [backView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset(15) ;
+            make.right.offset(-15) ;
+            make.top.equalTo(topHintLbl.mas_bottom).offset(20) ;
+            make.height.mas_equalTo(60) ;
+        }] ;
+       
+        
+        UITextField * textFeild = [[UITextField alloc] initWithFrame:CGRectZero] ;
+        textFeild.placeholder = self.deviceModel.deviceName ;
+        [textFeild addTarget:self action:@selector(textFeildValueChanged:) forControlEvents:UIControlEventEditingChanged] ;
+        textFeild.delegate = self ;
+        textFeild.clearButtonMode = UITextFieldViewModeWhileEditing ;
+        [backView addSubview:textFeild] ;
+        [textFeild mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset(10) ;
+            make.right.offset(-10) ;
+            make.top.bottom.equalTo(backView) ;
+        }] ;
+        UILabel * bottomHintLbl = [UILabel new] ;
+        bottomHintLbl.textColor = kNormalTextColor ;
+        bottomHintLbl.font = kTEXT_FONT_(12) ;
+        bottomHintLbl.text = @"名称必须控制在10个字符内，可使用字母及数字" ;
+        [self.view addSubview:bottomHintLbl] ;
+        [bottomHintLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(backView.mas_bottom).offset(5) ;
+            make.left.equalTo(backView).offset(10) ;
+        }] ;
+    }else{
+        NSArray * titleArr = @[@"名称",@"旧密码",@"新密码",@"新密码"] ;
+        NSArray * detailArr = @[self.deviceModel.deviceName,@"请填写旧密码",@"请输入新密码",@"请再次输入新密码"] ;
+        ASBaseCellView * nextView = nil ;
+        for (int i = 0; i < titleArr.count ; i++) {
+            ASBaseCellView * backView = [[ASBaseCellView alloc] initWithFrame:CGRectZero] ;
+            [self.view addSubview:backView] ;
+            [backView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.offset(15) ;
+                make.right.offset(-15) ;
+                if (nextView) {
+                    make.top.equalTo(nextView.mas_bottom).offset(20) ;
+                }else{
+                    make.top.offset(20 + KAllTopNavBarHeight) ;
+                }
+                make.height.mas_equalTo(60) ;
+            }] ;
+            nextView = backView ;
+            
+            UILabel * titleLbl = [UILabel new] ;
+            titleLbl.text = titleArr[i] ;
+            titleLbl.textColor = i == 0 ? kColorHex(0xbfbfbf) : [UIColor blackColor] ;
+            [backView addSubview:titleLbl] ;
+            [titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.offset(15) ;
+                make.centerY.equalTo(backView) ;
+            }] ;
+            
+            if (i == 0) {
+                UILabel * nameLbl = [UILabel new] ;
+                nameLbl.textColor = [UIColor blackColor] ;
+                
+            }
+            
+        }
+    }
     
 }
 
@@ -47,6 +143,31 @@
 }
 
 
+
+
+-(void)changedDoneBtnStatus:(BOOL)canDone{
+    UIColor  * backgroundColor = canDone ? kMainColor : kColorHex(0xbfbfbf) ;
+    UIColor * textColor = canDone ? [UIColor whiteColor] : kColorHex(0x707070) ;
+    self.doneBtn.backgroundColor = backgroundColor ;
+    [self.doneBtn setTitleColor:textColor forState:UIControlStateNormal] ;
+    self.doneBtn.userInteractionEnabled = canDone ;
+    
+}
+
+
+-(void)textFeildValueChanged:(UITextField *)textField{
+    [self changedDoneBtnStatus:textField.text.length] ;
+    self.inputString = textField.text ;
+}
+
+#pragma mark - textfeildDelegate
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if ((textField.text.length + string.length ) > 10) {
+        return NO ;
+    }
+    return YES;
+}
 
 /*
 #pragma mark - Navigation

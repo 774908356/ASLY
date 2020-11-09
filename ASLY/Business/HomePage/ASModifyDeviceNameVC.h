@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ASModifyDeviceNameVC : ASBaseViewController
 
+@property(nonatomic,assign) BOOL isModifyName ;
+
+
 @property(nonatomic, strong) ASDeviceModel   * deviceModel ;
 
 

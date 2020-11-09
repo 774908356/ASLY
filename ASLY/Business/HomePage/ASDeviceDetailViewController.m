@@ -19,6 +19,9 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated] ;
     self.navigationController.navigationBar.hidden = NO ;
+    self.title = self.deviceModel.deviceName ;
+    UILabel * tagLbl = [[self.view viewWithTag:1109] viewWithTag:20201109] ;
+   if (tagLbl) tagLbl.text = self.deviceModel.deviceName ;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -30,7 +33,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     WEAKSELF
-    self.title = self.deviceModel.deviceName ;
     NSArray * titleArr = @[@"名称",@"密码",@"感应距离",@"MAC地址",@""] ;
     NSArray * detailArr = @[self.deviceModel.deviceName,@"点击修改",[NSString stringWithFormat:@"%ld米",(long)self.deviceModel.sensingDistance],self.deviceModel.macAddress] ;
     if (!self.deviceModel.connectionSuccess) {
@@ -41,6 +43,7 @@
     ASBaseCellView * firstView = nil ;
     for (int i = 0; i < titleArr.count; i++) {
         ASBaseCellView * backView = [[ASBaseCellView alloc] initWithFrame:CGRectZero] ;
+        backView.tag = 1109 + i ;
         [self.view addSubview:backView] ;
         [backView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.offset(15) ;
@@ -64,8 +67,9 @@
                 make.edges.equalTo(backView) ;
             }] ;
             [nextBtn jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-                if (i == 0) {
+                if (i == 0 || i == 1) {
                     ASModifyDeviceNameVC * vc = [ASModifyDeviceNameVC new] ;
+                    vc.isModifyName = i == 0 ? YES : NO ;
                     vc.deviceModel = self.deviceModel ;
                     [self.navigationController pushViewController:vc animated:YES] ;
                 }
@@ -88,6 +92,7 @@
             
             UILabel * detailLbl = [UILabel new] ;
             detailLbl.text = detailArr[i] ;
+            detailLbl.tag = 20201109 + i ;
             detailLbl.textColor = kColorHex(0x8a8a8a) ;
             [backView addSubview:detailLbl] ;
             
