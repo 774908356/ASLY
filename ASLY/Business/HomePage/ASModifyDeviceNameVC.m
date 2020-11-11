@@ -124,15 +124,47 @@
             [titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.offset(15) ;
                 make.centerY.equalTo(backView) ;
+                make.width.mas_equalTo(80) ;
             }] ;
             
             if (i == 0) {
                 UILabel * nameLbl = [UILabel new] ;
                 nameLbl.textColor = [UIColor blackColor] ;
-                
+                nameLbl.text = detailArr[i] ;
+                [backView addSubview:nameLbl] ;
+                [nameLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.left.equalTo(titleLbl.mas_right);
+                    make.centerY.equalTo(titleLbl) ;
+                }] ;
+            }else{
+                UITextField * txField = [[UITextField alloc] initWithFrame:CGRectZero] ;
+                txField.tag = 20201111 + i ;
+                [txField addTarget:self action:@selector(textFeildValueChanged:) forControlEvents:UIControlEventEditingChanged] ;
+                txField.delegate = self ;
+                txField.placeholder = detailArr[i] ;
+                txField.clearButtonMode = UITextFieldViewModeAlways ;
+                txField.secureTextEntry = YES ;
+                txField.keyboardType = UIKeyboardTypeNumberPad ;
+                [backView  addSubview:txField] ;
+                [txField mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.top.bottom.equalTo(backView) ;
+                    make.left.equalTo(titleLbl.mas_right) ;
+                    make.right.offset(-15) ;
+                }] ;
             }
             
         }
+        
+        UILabel * bottomHintLbl = [UILabel new] ;
+        bottomHintLbl.textColor = kNormalTextColor ;
+        bottomHintLbl.font = kTEXT_FONT_(12) ;
+        bottomHintLbl.text = @"密码必须是6位数字" ;
+        [self.view addSubview:bottomHintLbl] ;
+        [bottomHintLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(nextView.mas_bottom).offset(15) ;
+            make.left.equalTo(nextView).offset(15) ;
+        }] ;
+        
     }
     
 }
@@ -156,6 +188,11 @@
 
 
 -(void)textFeildValueChanged:(UITextField *)textField{
+    if (textField.tag >= 20201111) {
+        
+        
+        return ; 
+    }
     [self changedDoneBtnStatus:textField.text.length] ;
     self.inputString = textField.text ;
 }
@@ -163,6 +200,10 @@
 #pragma mark - textfeildDelegate
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (textField.tag >= 20201111 &&(textField.text.length + string.length ) > 6) {
+        return NO ;
+    }
+    
     if ((textField.text.length + string.length ) > 10) {
         return NO ;
     }
