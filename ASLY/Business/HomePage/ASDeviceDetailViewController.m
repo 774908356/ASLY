@@ -21,7 +21,7 @@
     self.navigationController.navigationBar.hidden = NO ;
     self.title = self.deviceModel.deviceName ;
     UILabel * tagLbl = [[self.view viewWithTag:1109] viewWithTag:20201109] ;
-   if (tagLbl) tagLbl.text = self.deviceModel.deviceName ;
+   if (tagLbl && self.deviceModel.connectionSuccess) tagLbl.text = self.deviceModel.deviceName ;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

@@ -172,11 +172,27 @@
         
     }else if (indexPath.row == 1){
         
-    
-        
+        NSArray * iconIVArr = @[@"as_faceRegise_icon",@"as_userInfo_icon",@"as_jiesuo_icon"] ;
+        NSArray * titleArr = @[@"人脸注册",@"用户信息",@"解锁记录"] ;
+        for (int i = 0; i < iconIVArr.count; i++) {
+            UIButton * btn = [self createCellBtnWithIconImg:iconIVArr[i] withTitle:titleArr[i]] ;
+            btn.tag = 100 + i ;
+            [backView addSubview:btn] ;
+            [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.right.equalTo(backView) ;
+                make.height.mas_equalTo(60) ;
+                make.top.offset(i * 60) ;
+            }] ;
+        }
         
     }else{
-        
+        UIButton * btn = [self createCellBtnWithIconImg:@"as_aboutUs_icon" withTitle:@"关于我们"] ;
+        btn.tag = 103 ;
+        [backView addSubview:btn] ;
+        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.right.equalTo(backView) ;
+            make.height.mas_equalTo(60) ;
+        }] ;
     }
     
     
@@ -184,7 +200,39 @@
     return cell;
 }
 
+-(UIButton *)createCellBtnWithIconImg:(NSString *)iconImgStr withTitle:(NSString *)titleStr{
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom] ;
+    [btn jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+        NSLog(@"%ld",btn.tag) ;
+    }] ;
+    UIImageView * iconIV = [UIImageView jk_imageViewWithImageNamed:iconImgStr] ;
+    [btn addSubview:iconIV] ;
+    [iconIV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(15) ;
+        make.centerY.equalTo(btn) ;
+        make.width.height.mas_equalTo(25) ;
+    }] ;
 
+    UILabel * titleLbl = [UILabel new] ;
+    titleLbl.text = titleStr ;
+    titleLbl.textColor = [UIColor blackColor] ;
+    [btn addSubview:titleLbl] ;
+    [titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(iconIV.mas_right).offset(15) ;
+        make.centerY.equalTo(iconIV) ;
+    }] ;
+    
+    
+    UIImageView * goIV = [UIImageView jk_imageViewWithImageNamed:@"as_next_iv"];
+    [btn addSubview:goIV] ;
+    [goIV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.offset(-20) ;
+        make.centerY.equalTo(btn) ;
+        make.size.mas_equalTo(CGSizeMake(20, 15)) ;
+    }] ;
+    
+    return btn;
+}
 
 
 /*
