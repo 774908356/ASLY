@@ -72,6 +72,65 @@
                     vc.isModifyName = i == 0 ? YES : NO ;
                     vc.deviceModel = self.deviceModel ;
                     [self.navigationController pushViewController:vc animated:YES] ;
+                }else if (i == 2){
+                    UIButton * backBtn = [UIButton buttonWithType:UIButtonTypeCustom]  ;
+                    [backBtn jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+                        [backBtn removeFromSuperview] ;
+                    }] ;
+                    [self.view addSubview:backBtn] ;
+                    [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.edges.equalTo(self.view) ;
+                    }] ;
+                    
+                    UIView * changedView = [UIView new] ;
+                    changedView.backgroundColor = kColorHex(0x8a8a8a) ;
+                    changedView.layer.masksToBounds = YES ;
+                    changedView.layer.cornerRadius = 5. ;
+                    [backBtn addSubview:changedView] ;
+                    [changedView mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.top.offset(nextBtn.superview.jk_origin.y + nextBtn.superview.jk_height - 5) ;
+                        make.right.offset(-15) ;
+                        make.width.mas_equalTo(120);
+                        make.height.mas_equalTo(183) ;
+                    }];
+                    
+                    UIView * firstView = nil ;
+                    for (int i = 0 ; i < 4; i++) {
+                        UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom] ;
+                        btn.tag = 2020 + i ;
+                        [btn jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+                            self.deviceModel.sensingDistance = btn.tag - 2020 + 1 ;
+                            UILabel * lbl = [nextBtn.superview viewWithTag:20201111] ;
+                            lbl.text = [NSString stringWithFormat:@"%ld米",(long)self.deviceModel.sensingDistance] ;
+                            [backBtn removeFromSuperview] ;
+                        }] ;
+                        [btn setTitle:[NSString stringWithFormat:@"%d米",i + 1] forState:UIControlStateNormal] ;
+                        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal] ;
+                        btn.titleLabel.font = kTEXT_FONT_(13) ;
+                        [changedView addSubview:btn] ;
+                        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+                            make.left.right.equalTo(changedView) ;
+                            make.height.mas_equalTo(40) ;
+                            if (firstView) {
+                                make.top.equalTo(firstView.mas_bottom).offset(1) ;
+                            }else{
+                                make.top.equalTo(changedView) ;
+                            }
+                        }] ;
+                        firstView = btn ;
+                        if (i < 3) {
+                            UIView * lineView = [UIView new] ;
+                            lineView.backgroundColor = [UIColor whiteColor] ;
+                            [changedView addSubview:lineView] ;
+                            [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+                                make.left.right.equalTo(changedView) ;
+                                make.height.mas_equalTo(1) ;
+                                make.top.equalTo(firstView.mas_bottom) ;
+                            }] ;
+                        }
+                        
+                    }
+                    
                 }
             }] ;
             

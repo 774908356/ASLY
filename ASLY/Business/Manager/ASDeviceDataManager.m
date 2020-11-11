@@ -35,7 +35,7 @@
             }
         }
         model.devicePassword = @"123456" ;
-        model.sensingDistance = arc4random() % 5 + 1 ;
+        model.sensingDistance = arc4random() % 4 + 1 ;
         model.macAddress = @"ab:bc:64:d1:cc:c1" ;
         model.deviceId = [NSString stringWithFormat:@"%d",i] ;
         [self.allDeviceMuArr addObject:model] ;

@@ -35,6 +35,10 @@
 		14B5FBC32557CBB1000DCAC2 /* as_next_iv.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FBC12557CBB1000DCAC2 /* as_next_iv.png */; };
 		14B5FBC62557D17F000DCAC2 /* as_xiasanjiao_iv.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FBC52557D17F000DCAC2 /* as_xiasanjiao_iv.png */; };
 		14B5FBCA2557E45A000DCAC2 /* ASModifyDeviceNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B5FBC92557E45A000DCAC2 /* ASModifyDeviceNameVC.m */; };
+		14B5FBD1255C36BD000DCAC2 /* as_faceRegise_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FBD0255C36BD000DCAC2 /* as_faceRegise_icon.png */; };
+		14B5FBD4255C36D4000DCAC2 /* as_userInfo_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FBD3255C36D4000DCAC2 /* as_userInfo_icon.png */; };
+		14B5FBD7255C36F4000DCAC2 /* as_jiesuo_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FBD6255C36F4000DCAC2 /* as_jiesuo_icon.png */; };
+		14B5FBDA255C370B000DCAC2 /* as_aboutUs_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FBD9255C370B000DCAC2 /* as_aboutUs_icon.png */; };
 		2BE52B33059DC990468AC675 /* Pods_ASLY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DF812CCF741374C3DEA75 /* Pods_ASLY.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +88,10 @@
 		14B5FBC52557D17F000DCAC2 /* as_xiasanjiao_iv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = as_xiasanjiao_iv.png; sourceTree = "<group>"; };
 		14B5FBC82557E45A000DCAC2 /* ASModifyDeviceNameVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASModifyDeviceNameVC.h; sourceTree = "<group>"; };
 		14B5FBC92557E45A000DCAC2 /* ASModifyDeviceNameVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASModifyDeviceNameVC.m; sourceTree = "<group>"; };
+		14B5FBD0255C36BD000DCAC2 /* as_faceRegise_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = as_faceRegise_icon.png; sourceTree = "<group>"; };
+		14B5FBD3255C36D4000DCAC2 /* as_userInfo_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = as_userInfo_icon.png; sourceTree = "<group>"; };
+		14B5FBD6255C36F4000DCAC2 /* as_jiesuo_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = as_jiesuo_icon.png; sourceTree = "<group>"; };
+		14B5FBD9255C370B000DCAC2 /* as_aboutUs_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = as_aboutUs_icon.png; sourceTree = "<group>"; };
 		41C94350CFC737CCEC2D2F5B /* Pods-ASLY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASLY.release.xcconfig"; path = "Target Support Files/Pods-ASLY/Pods-ASLY.release.xcconfig"; sourceTree = "<group>"; };
 		54C46DCE9688D22BF8BB9D7A /* Pods-ASLY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASLY.debug.xcconfig"; path = "Target Support Files/Pods-ASLY/Pods-ASLY.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0DF812CCF741374C3DEA75 /* Pods_ASLY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASLY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,7 +232,11 @@
 				14B5FBAE2557B40B000DCAC2 /* homepage_hint_iv.png */,
 				14B5FBC02557CBB1000DCAC2 /* as_back_iv.png */,
 				14B5FBC12557CBB1000DCAC2 /* as_next_iv.png */,
+				14B5FBD9255C370B000DCAC2 /* as_aboutUs_icon.png */,
 				14B5FBC52557D17F000DCAC2 /* as_xiasanjiao_iv.png */,
+				14B5FBD0255C36BD000DCAC2 /* as_faceRegise_icon.png */,
+				14B5FBD6255C36F4000DCAC2 /* as_jiesuo_icon.png */,
+				14B5FBD3255C36D4000DCAC2 /* as_userInfo_icon.png */,
 			);
 			path = Res;
 			sourceTree = "<group>";
@@ -344,9 +356,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1486B91525503DDF00F127D8 /* LaunchScreen.storyboard in Resources */,
+				14B5FBD4255C36D4000DCAC2 /* as_userInfo_icon.png in Resources */,
 				14B5FBC62557D17F000DCAC2 /* as_xiasanjiao_iv.png in Resources */,
 				14B5FBC32557CBB1000DCAC2 /* as_next_iv.png in Resources */,
 				141DD0ED2552D89D00A3A707 /* bluetooth.png in Resources */,
+				14B5FBD1255C36BD000DCAC2 /* as_faceRegise_icon.png in Resources */,
 				141DD0F02552D8C100A3A707 /* intro_background.png in Resources */,
 				1486B9352550549800F127D8 /* tabBar_homePage_selected.png in Resources */,
 				1486B93A25505B2800F127D8 /* tabBar_Mine.png in Resources */,
@@ -356,6 +370,8 @@
 				14B5FBC22557CBB1000DCAC2 /* as_back_iv.png in Resources */,
 				1486B9362550549800F127D8 /* tabBar_homePage.png in Resources */,
 				14B5FBAF2557B40B000DCAC2 /* homepage_hint_iv.png in Resources */,
+				14B5FBDA255C370B000DCAC2 /* as_aboutUs_icon.png in Resources */,
+				14B5FBD7255C36F4000DCAC2 /* as_jiesuo_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,8 +571,9 @@
 			baseConfigurationReference = 54C46DCE9688D22BF8BB9D7A /* Pods-ASLY.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TNQN9VNPWD;
+				DEVELOPMENT_TEAM = U8DVA2L62W;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ASLY/Macro/ASMacro.h";
 				INFOPLIST_FILE = ASLY/Info.plist;
@@ -567,6 +584,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.as.ASLY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -576,8 +594,9 @@
 			baseConfigurationReference = 41C94350CFC737CCEC2D2F5B /* Pods-ASLY.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TNQN9VNPWD;
+				DEVELOPMENT_TEAM = U8DVA2L62W;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ASLY/Macro/ASMacro.h";
 				INFOPLIST_FILE = ASLY/Info.plist;
@@ -588,6 +607,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.as.ASLY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

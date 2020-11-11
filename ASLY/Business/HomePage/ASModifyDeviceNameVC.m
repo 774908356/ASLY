@@ -28,11 +28,25 @@
         [_doneBtn jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
             if (weakSelf.isModifyName) {
                 weakSelf.deviceModel.deviceName = weakSelf.inputString ;
+                [[UIApplication sharedApplication].delegate.window jk_makeToast:@"修改成功" duration:2. position:JKToastPositionCenter] ;
             }else{
+                UITextField * tx_1 = [[weakSelf.view viewWithTag:202011] viewWithTag:20201111] ;
+                UITextField * tx_2 = [[weakSelf.view viewWithTag:202012] viewWithTag:20201112] ;
+                UITextField * tx_3 = [[weakSelf.view viewWithTag:202013] viewWithTag:20201113] ;
+                
+                if (![tx_1.text isEqualToString:weakSelf.deviceModel.devicePassword]) {
+                    [[UIApplication sharedApplication].delegate.window jk_makeToast:@"原密码输入错误" duration:2. position:JKToastPositionCenter] ;
+                    return;
+                }
+                if (![tx_2.text isEqualToString:tx_3.text]) {
+                    [[UIApplication sharedApplication].delegate.window jk_makeToast:@"密码不匹配" duration:2. position:JKToastPositionCenter] ;
+                    return;
+                }
+                [[UIApplication sharedApplication].delegate.window jk_makeToast:@"修改成功，请记住此密码" duration:2. position:JKToastPositionCenter] ;
                 weakSelf.deviceModel.devicePassword = weakSelf.inputString ;
             }
             [weakSelf.navigationController popViewControllerAnimated:YES] ;
-            [[UIApplication sharedApplication].delegate.window jk_makeToast:@"修改成功" duration:2. position:JKToastPositionCenter] ;
+           
         }] ;
         _doneBtn.frame = CGRectMake(0, 0, 60, 20) ;
         [_doneBtn setTitle:@"完成" forState:UIControlStateNormal] ;
@@ -104,6 +118,7 @@
         ASBaseCellView * nextView = nil ;
         for (int i = 0; i < titleArr.count ; i++) {
             ASBaseCellView * backView = [[ASBaseCellView alloc] initWithFrame:CGRectZero] ;
+            backView.tag = 202011 + i - 1 ;
             [self.view addSubview:backView] ;
             [backView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.offset(15) ;
@@ -138,7 +153,7 @@
                 }] ;
             }else{
                 UITextField * txField = [[UITextField alloc] initWithFrame:CGRectZero] ;
-                txField.tag = 20201111 + i ;
+                txField.tag = 20201111 + i - 1 ;
                 [txField addTarget:self action:@selector(textFeildValueChanged:) forControlEvents:UIControlEventEditingChanged] ;
                 txField.delegate = self ;
                 txField.placeholder = detailArr[i] ;
@@ -189,19 +204,54 @@
 
 -(void)textFeildValueChanged:(UITextField *)textField{
     if (textField.tag >= 20201111) {
-        
-        
+        UITextField * tx_1 = [[self.view viewWithTag:202011] viewWithTag:20201111] ;
+        UITextField * tx_2 = [[self.view viewWithTag:202012] viewWithTag:20201112] ;
+        UITextField * tx_3 = [[self.view viewWithTag:202013] viewWithTag:20201113] ;
+        if (tx_1.text.length == 6 && tx_2.text.length == 6 && tx_3.text.length == 6) {
+            [self changedDoneBtnStatus:YES] ;
+            self.inputString = tx_3.text ;
+        }else{
+            [self changedDoneBtnStatus:NO] ;
+        }
         return ; 
     }
     [self changedDoneBtnStatus:textField.text.length] ;
     self.inputString = textField.text ;
 }
 
+-(BOOL)isNumText:(NSString *)str{
+
+    NSString * regex        = @"^[0-9]*$";
+
+    NSPredicate * pred      = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+
+    BOOL isMatch            = [pred evaluateWithObject:str];
+
+    if (isMatch) {
+
+        return YES;
+
+    }else{
+
+        return NO;
+
+    }
+
+}
+
+
+
 #pragma mark - textfeildDelegate
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     if (textField.tag >= 20201111 &&(textField.text.length + string.length ) > 6) {
         return NO ;
+    }
+    
+    if (textField.tag >= 20201111) {
+        if (![self isNumText:textField.text]) {
+            return NO;
+        }
     }
     
     if ((textField.text.length + string.length ) > 10) {

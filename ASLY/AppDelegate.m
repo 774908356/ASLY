@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     UIViewController * rootVC = nil;
-    if (NO) {
+    if (YES) {
        rootVC = [ASBaseTableBarVC new] ;
     }else{
         rootVC = [ASFirstJoinVC new] ;
