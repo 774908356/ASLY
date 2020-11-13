@@ -139,23 +139,29 @@ PODS:
   - JKCategories/UIKit/UIWindow (1.9.1)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
+  - SDWebImage (5.9.1):
+    - SDWebImage/Core (= 5.9.1)
+  - SDWebImage/Core (5.9.1)
 
 DEPENDENCIES:
   - JKCategories
   - Masonry
   - MBProgressHUD
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
     - JKCategories
     - Masonry
     - MBProgressHUD
+    - SDWebImage
 
 SPEC CHECKSUMS:
   JKCategories: 5bd36ff325c80652cc2e47b689bfc0e81c563d76
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
 
-PODFILE CHECKSUM: 59cad38e045998c46e3804d6574979f0d9e77fd6
+PODFILE CHECKSUM: e1424fddcf76604a90360a399db5393fa48ca636
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.9.1

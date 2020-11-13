@@ -8,6 +8,7 @@
 
 #import "ASMineViewController.h"
 #import "ASBaseCellView.h"
+#import "ASFaceRegistViewController.h"
 
 @interface ASMineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -204,6 +205,11 @@
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom] ;
     [btn jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
         NSLog(@"%ld",btn.tag) ;
+        if (btn.tag == 100) {
+            ASFaceRegistViewController * vc = [ASFaceRegistViewController new] ;
+            vc.hidesBottomBarWhenPushed = YES ;
+            [self.navigationController pushViewController:vc animated:YES] ;
+        }
     }] ;
     UIImageView * iconIV = [UIImageView jk_imageViewWithImageNamed:iconImgStr] ;
     [btn addSubview:iconIV] ;

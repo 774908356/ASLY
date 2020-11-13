@@ -7,6 +7,7 @@ target "ASLY" do
    pod 'Masonry'
    pod 'JKCategories'  
    pod 'MBProgressHUD'
+   pod 'SDWebImage'
 #   pod 'IQKeyboardManager'
 
 end

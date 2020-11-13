@@ -12,6 +12,7 @@
 #import <JKCategories/JKCategories.h>
 #import <Masonry/Masonry.h>
 #import "ASDeviceDataManager.h"
+#import <SDWebImage/SDWebImage.h>
 
 #define WEAKSELF_(x) typeof(x) __weak weakSelf = x;
 #define STRONGSELF_(x) typeof(x) __strong strongSelf = x;
