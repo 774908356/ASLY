@@ -46,4 +46,6 @@
 #define UIImageNamed(name) [UIImage imageNamed:name]
 
 
+#define kFirstJoinSuccess   @"kFirstJoinSuccess"
+
 #endif /* ASMacro_h */

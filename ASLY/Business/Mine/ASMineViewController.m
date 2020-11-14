@@ -9,6 +9,7 @@
 #import "ASMineViewController.h"
 #import "ASBaseCellView.h"
 #import "ASFaceRegistViewController.h"
+#import "ASOtherMineViewController.h"
 
 @interface ASMineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -35,6 +36,10 @@
     [super viewWillAppear:animated] ;
     
     [self.tableView reloadData] ;
+    
+    UIView * backView = [self.view viewWithTag:654321] ;
+    
+    if (backView) [backView removeFromSuperview] ;
     
 }
 
@@ -92,6 +97,7 @@
             NSArray<ASDeviceModel *> * myListArr = [[ASDeviceDataManager shareManager] getMyDeviceArr] ;
             if (myListArr.count) {
                 UIButton * backBtn = [UIButton buttonWithType:UIButtonTypeCustom]  ;
+                backBtn.tag = 654321 ;
                 [backBtn jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
                     [backBtn removeFromSuperview] ;
                 }] ;
@@ -117,7 +123,8 @@
                     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom] ;
                     btn.tag = 2020 + i ;
                     [btn jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-                        [nameBtn setTitle:myListArr[i].deviceName forState:UIControlStateNormal];
+                        [[ASDeviceDataManager shareManager] mineSelectedDevice:myListArr[i]] ;
+                        [nameBtn setTitle:[[ASDeviceDataManager shareManager] getSelectedDelviceName] forState:UIControlStateNormal];
                         [backBtn removeFromSuperview] ;
                     }] ;
                     [btn setTitle:myListArr[i].deviceName forState:UIControlStateNormal] ;
@@ -152,8 +159,7 @@
         }] ;
         nameBtn.titleLabel.font = kTEXT_FONT_BOLD_(20) ;
         [nameBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal] ;
-        NSString * nameStr = [[[ASDeviceDataManager shareManager] getMyDeviceArr] firstObject].deviceName ;
-        if (!nameStr) nameStr = @"暂无可连接设备" ;
+        NSString * nameStr = [[ASDeviceDataManager shareManager] getSelectedDelviceName] ;
         [nameBtn setTitle:nameStr forState:UIControlStateNormal]  ;
         [backView addSubview:nameBtn] ;
         [nameBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -207,6 +213,11 @@
         NSLog(@"%ld",btn.tag) ;
         if (btn.tag == 100) {
             ASFaceRegistViewController * vc = [ASFaceRegistViewController new] ;
+            vc.hidesBottomBarWhenPushed = YES ;
+            [self.navigationController pushViewController:vc animated:YES] ;
+        }else{
+            ASOtherMineViewController * vc = [ASOtherMineViewController new] ;
+            vc.type = btn.tag;
             vc.hidesBottomBarWhenPushed = YES ;
             [self.navigationController pushViewController:vc animated:YES] ;
         }

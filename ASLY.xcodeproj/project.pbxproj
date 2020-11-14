@@ -42,6 +42,12 @@
 		14CC8E27255E789200B2ABB9 /* as_faceAnimal_all.gif in Resources */ = {isa = PBXBuildFile; fileRef = 14CC8E26255E789200B2ABB9 /* as_faceAnimal_all.gif */; };
 		14CC8E2B255E7D3000B2ABB9 /* ASHasNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC8E2A255E7D3000B2ABB9 /* ASHasNavViewController.m */; };
 		14CC8E2F255E7DCD00B2ABB9 /* ASFaceRegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC8E2E255E7DCD00B2ABB9 /* ASFaceRegistViewController.m */; };
+		14D77DBE255FBC5B006BC81C /* as_faceAnimal_right.gif in Resources */ = {isa = PBXBuildFile; fileRef = 14D77DBA255FBC5A006BC81C /* as_faceAnimal_right.gif */; };
+		14D77DBF255FBC5B006BC81C /* as_faceAnimal_up.gif in Resources */ = {isa = PBXBuildFile; fileRef = 14D77DBB255FBC5A006BC81C /* as_faceAnimal_up.gif */; };
+		14D77DC0255FBC5B006BC81C /* as_faceAnimal_left.gif in Resources */ = {isa = PBXBuildFile; fileRef = 14D77DBC255FBC5A006BC81C /* as_faceAnimal_left.gif */; };
+		14D77DC1255FBC5B006BC81C /* as_faceAnimal_middle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 14D77DBD255FBC5B006BC81C /* as_faceAnimal_middle.gif */; };
+		14D77DC5255FC273006BC81C /* ASOtherMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D77DC4255FC273006BC81C /* ASOtherMineViewController.m */; };
+		14D77DC9255FC950006BC81C /* ASUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D77DC8255FC950006BC81C /* ASUserModel.m */; };
 		2BE52B33059DC990468AC675 /* Pods_ASLY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DF812CCF741374C3DEA75 /* Pods_ASLY.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +106,14 @@
 		14CC8E2A255E7D3000B2ABB9 /* ASHasNavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHasNavViewController.m; sourceTree = "<group>"; };
 		14CC8E2D255E7DCD00B2ABB9 /* ASFaceRegistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASFaceRegistViewController.h; sourceTree = "<group>"; };
 		14CC8E2E255E7DCD00B2ABB9 /* ASFaceRegistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASFaceRegistViewController.m; sourceTree = "<group>"; };
+		14D77DBA255FBC5A006BC81C /* as_faceAnimal_right.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = as_faceAnimal_right.gif; sourceTree = "<group>"; };
+		14D77DBB255FBC5A006BC81C /* as_faceAnimal_up.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = as_faceAnimal_up.gif; sourceTree = "<group>"; };
+		14D77DBC255FBC5A006BC81C /* as_faceAnimal_left.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = as_faceAnimal_left.gif; sourceTree = "<group>"; };
+		14D77DBD255FBC5B006BC81C /* as_faceAnimal_middle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = as_faceAnimal_middle.gif; sourceTree = "<group>"; };
+		14D77DC3255FC273006BC81C /* ASOtherMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASOtherMineViewController.h; sourceTree = "<group>"; };
+		14D77DC4255FC273006BC81C /* ASOtherMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASOtherMineViewController.m; sourceTree = "<group>"; };
+		14D77DC7255FC950006BC81C /* ASUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASUserModel.h; sourceTree = "<group>"; };
+		14D77DC8255FC950006BC81C /* ASUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASUserModel.m; sourceTree = "<group>"; };
 		41C94350CFC737CCEC2D2F5B /* Pods-ASLY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASLY.release.xcconfig"; path = "Target Support Files/Pods-ASLY/Pods-ASLY.release.xcconfig"; sourceTree = "<group>"; };
 		54C46DCE9688D22BF8BB9D7A /* Pods-ASLY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASLY.debug.xcconfig"; path = "Target Support Files/Pods-ASLY/Pods-ASLY.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0DF812CCF741374C3DEA75 /* Pods_ASLY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASLY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +233,8 @@
 				1486B92A2550495600F127D8 /* ASMineViewController.m */,
 				14CC8E2D255E7DCD00B2ABB9 /* ASFaceRegistViewController.h */,
 				14CC8E2E255E7DCD00B2ABB9 /* ASFaceRegistViewController.m */,
+				14D77DC3255FC273006BC81C /* ASOtherMineViewController.h */,
+				14D77DC4255FC273006BC81C /* ASOtherMineViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -250,6 +266,10 @@
 				14B5FBD6255C36F4000DCAC2 /* as_jiesuo_icon.png */,
 				14B5FBD3255C36D4000DCAC2 /* as_userInfo_icon.png */,
 				14CC8E26255E789200B2ABB9 /* as_faceAnimal_all.gif */,
+				14D77DBC255FBC5A006BC81C /* as_faceAnimal_left.gif */,
+				14D77DBD255FBC5B006BC81C /* as_faceAnimal_middle.gif */,
+				14D77DBA255FBC5A006BC81C /* as_faceAnimal_right.gif */,
+				14D77DBB255FBC5A006BC81C /* as_faceAnimal_up.gif */,
 			);
 			path = Res;
 			sourceTree = "<group>";
@@ -278,6 +298,8 @@
 			children = (
 				14B5FBB22557B8BC000DCAC2 /* ASDeviceModel.h */,
 				14B5FBB32557B8BC000DCAC2 /* ASDeviceModel.m */,
+				14D77DC7255FC950006BC81C /* ASUserModel.h */,
+				14D77DC8255FC950006BC81C /* ASUserModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -370,6 +392,7 @@
 			files = (
 				1486B91525503DDF00F127D8 /* LaunchScreen.storyboard in Resources */,
 				14B5FBD4255C36D4000DCAC2 /* as_userInfo_icon.png in Resources */,
+				14D77DC1255FBC5B006BC81C /* as_faceAnimal_middle.gif in Resources */,
 				14B5FBC62557D17F000DCAC2 /* as_xiasanjiao_iv.png in Resources */,
 				14B5FBC32557CBB1000DCAC2 /* as_next_iv.png in Resources */,
 				141DD0ED2552D89D00A3A707 /* bluetooth.png in Resources */,
@@ -380,9 +403,12 @@
 				1486B93925505B2800F127D8 /* tabBar_Mine_selected.png in Resources */,
 				1486B91225503DDF00F127D8 /* Assets.xcassets in Resources */,
 				141DD1032552F65E00A3A707 /* inputPassword_close_btn.png in Resources */,
+				14D77DBF255FBC5B006BC81C /* as_faceAnimal_up.gif in Resources */,
 				14B5FBC22557CBB1000DCAC2 /* as_back_iv.png in Resources */,
+				14D77DC0255FBC5B006BC81C /* as_faceAnimal_left.gif in Resources */,
 				14CC8E27255E789200B2ABB9 /* as_faceAnimal_all.gif in Resources */,
 				1486B9362550549800F127D8 /* tabBar_homePage.png in Resources */,
+				14D77DBE255FBC5B006BC81C /* as_faceAnimal_right.gif in Resources */,
 				14B5FBAF2557B40B000DCAC2 /* homepage_hint_iv.png in Resources */,
 				14B5FBDA255C370B000DCAC2 /* as_aboutUs_icon.png in Resources */,
 				14B5FBD7255C36F4000DCAC2 /* as_jiesuo_icon.png in Resources */,
@@ -444,8 +470,10 @@
 				14B5FBBE2557C840000DCAC2 /* ASDeviceDetailViewController.m in Sources */,
 				14B5FBB42557B8BC000DCAC2 /* ASDeviceModel.m in Sources */,
 				14B5FBBA2557BB42000DCAC2 /* ASDeviceDataManager.m in Sources */,
+				14D77DC5255FC273006BC81C /* ASOtherMineViewController.m in Sources */,
 				14AE9B04255198810087B4E1 /* ASFirstJoinVC.m in Sources */,
 				14CC8E2B255E7D3000B2ABB9 /* ASHasNavViewController.m in Sources */,
+				14D77DC9255FC950006BC81C /* ASUserModel.m in Sources */,
 				141DD0FF2552F1C300A3A707 /* ASInputConnectPasswordView.m in Sources */,
 				14CC8E2F255E7DCD00B2ABB9 /* ASFaceRegistViewController.m in Sources */,
 				1486B92E25504C3A00F127D8 /* ASBaseTableBarVC.m in Sources */,

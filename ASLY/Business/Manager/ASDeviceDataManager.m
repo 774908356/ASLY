@@ -69,8 +69,27 @@
 }
 
 
+-(void)mineSelectedDevice:(ASDeviceModel *)model{
+    
+    for (ASDeviceModel * model in self.allDeviceMuArr) {
+        model.isMinePageSelected = NO ;
+    }
+    
+    model.isMinePageSelected = YES ;
+    
+}
 
-
-
+-(NSString *)getSelectedDelviceName{
+    ASDeviceModel * firstMyDeviceModel = [[self getMyDeviceArr] firstObject] ;
+    for (ASDeviceModel * model in [self getMyDeviceArr]) {
+        if (model.isMinePageSelected) return model.deviceName;
+    }
+    
+    if (firstMyDeviceModel) {
+        return firstMyDeviceModel.deviceName;
+    }
+    
+    return @"暂无可连接设备";
+}
 
 @end

@@ -35,6 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy) NSString *macAddress;
 
 
+/// 我的页面已选择
+@property(nonatomic,assign) BOOL isMinePageSelected;
+
 
 @end
 

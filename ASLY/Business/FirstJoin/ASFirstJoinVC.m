@@ -146,7 +146,7 @@
 
 
 -(void)jumpBtnTapped{
-    
+    [[NSUserDefaults standardUserDefaults] setObject:@"joinSuccess" forKey:kFirstJoinSuccess] ;
     [UIApplication sharedApplication].delegate.window.rootViewController = [ASBaseTableBarVC new]  ;
     
 }
