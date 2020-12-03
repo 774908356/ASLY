@@ -41,6 +41,8 @@
     
     if (backView) [backView removeFromSuperview] ;
     
+    self.navigationController.navigationBar.hidden = YES ;
+
 }
 
 
