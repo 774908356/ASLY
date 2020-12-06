@@ -161,8 +161,18 @@
     
     if (model.isMyDevice) {
         if (model.connectionSuccess) {
-            [self goToDetailVCWithIndex:indexPath] ;
+            model.connectionSuccess = NO ;
+            [self.connecTableView reloadData] ;
         }else{
+            
+            BOOL connectionRandom = arc4random() % 2 ;
+            
+            if (connectionRandom) {
+                model.connectionSuccess = YES ;
+                [self.connecTableView reloadData] ;
+                return;
+            }
+            
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"连接不成功" message:[NSString stringWithFormat:@"请确定\"%@\"已打开且在感应距离内",model.deviceName] preferredStyle:UIAlertControllerStyleAlert] ;
             UIAlertAction * action = [UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 [alert dismissViewControllerAnimated:YES completion:^{

@@ -117,7 +117,7 @@
                     make.top.offset([[UIApplication sharedApplication] statusBarFrame].size.height + 150 - 5) ;
                     make.centerX.equalTo(self.view) ;
                     make.width.mas_equalTo(160);
-                    make.height.mas_equalTo(40 * myListArr.count + 20) ;
+                    make.height.mas_equalTo(40 * myListArr.count) ;
                 }];
                 
                 UIView * firstView = nil ;

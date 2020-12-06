@@ -42,7 +42,10 @@
 - (UIImageView *)gifIV{
     if (!_gifIV) {
         _gifIV = [UIImageView new] ;
-        _gifIV.image = [self getImageWithName:@"as_faceAnimal_all"] ;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            _gifIV.image = [self getImageWithName:@"as_faceAnimal_all"] ;
+
+        });
     }
     return _gifIV;
 }

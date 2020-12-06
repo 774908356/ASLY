@@ -13,6 +13,8 @@
 		141DD0FA2552F0BA00A3A707 /* HWTFCodeBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 141DD0F82552F0B900A3A707 /* HWTFCodeBView.m */; };
 		141DD0FF2552F1C300A3A707 /* ASInputConnectPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 141DD0FE2552F1C300A3A707 /* ASInputConnectPasswordView.m */; };
 		141DD1032552F65E00A3A707 /* inputPassword_close_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 141DD1022552F65E00A3A707 /* inputPassword_close_btn.png */; };
+		146BF2DE257C8BB8000164B6 /* 傲硕蓝牙.png in Resources */ = {isa = PBXBuildFile; fileRef = 146BF2DD257C8BB8000164B6 /* 傲硕蓝牙.png */; };
+		146BF2E2257C8C63000164B6 /* ASFirstSetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 146BF2E1257C8C63000164B6 /* ASFirstSetPasswordVC.m */; };
 		1486B90725503DDB00F127D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1486B90625503DDB00F127D8 /* AppDelegate.m */; };
 		1486B91225503DDF00F127D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1486B91125503DDF00F127D8 /* Assets.xcassets */; };
 		1486B91525503DDF00F127D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1486B91325503DDF00F127D8 /* LaunchScreen.storyboard */; };
@@ -61,6 +63,9 @@
 		141DD0FD2552F1C300A3A707 /* ASInputConnectPasswordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASInputConnectPasswordView.h; sourceTree = "<group>"; };
 		141DD0FE2552F1C300A3A707 /* ASInputConnectPasswordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASInputConnectPasswordView.m; sourceTree = "<group>"; };
 		141DD1022552F65E00A3A707 /* inputPassword_close_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inputPassword_close_btn.png; sourceTree = "<group>"; };
+		146BF2DD257C8BB8000164B6 /* 傲硕蓝牙.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "傲硕蓝牙.png"; sourceTree = "<group>"; };
+		146BF2E0257C8C63000164B6 /* ASFirstSetPasswordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASFirstSetPasswordVC.h; sourceTree = "<group>"; };
+		146BF2E1257C8C63000164B6 /* ASFirstSetPasswordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASFirstSetPasswordVC.m; sourceTree = "<group>"; };
 		1486B90225503DDB00F127D8 /* ASLY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASLY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1486B90525503DDB00F127D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1486B90625503DDB00F127D8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -255,6 +260,7 @@
 				1486B93725505B2800F127D8 /* tabBar_Mine_selected.png */,
 				1486B93825505B2800F127D8 /* tabBar_Mine.png */,
 				141DD0EC2552D89D00A3A707 /* bluetooth.png */,
+				146BF2DD257C8BB8000164B6 /* 傲硕蓝牙.png */,
 				141DD0EF2552D8C100A3A707 /* intro_background.png */,
 				141DD1022552F65E00A3A707 /* inputPassword_close_btn.png */,
 				14B5FBAE2557B40B000DCAC2 /* homepage_hint_iv.png */,
@@ -280,6 +286,8 @@
 				141DD0FC2552F0C300A3A707 /* Views */,
 				14AE9B02255198810087B4E1 /* ASFirstJoinVC.h */,
 				14AE9B03255198810087B4E1 /* ASFirstJoinVC.m */,
+				146BF2E0257C8C63000164B6 /* ASFirstSetPasswordVC.h */,
+				146BF2E1257C8C63000164B6 /* ASFirstSetPasswordVC.m */,
 			);
 			path = FirstJoin;
 			sourceTree = "<group>";
@@ -398,6 +406,7 @@
 				141DD0ED2552D89D00A3A707 /* bluetooth.png in Resources */,
 				14B5FBD1255C36BD000DCAC2 /* as_faceRegise_icon.png in Resources */,
 				141DD0F02552D8C100A3A707 /* intro_background.png in Resources */,
+				146BF2DE257C8BB8000164B6 /* 傲硕蓝牙.png in Resources */,
 				1486B9352550549800F127D8 /* tabBar_homePage_selected.png in Resources */,
 				1486B93A25505B2800F127D8 /* tabBar_Mine.png in Resources */,
 				1486B93925505B2800F127D8 /* tabBar_Mine_selected.png in Resources */,
@@ -469,6 +478,7 @@
 				1486B926255048ED00F127D8 /* ASHomePageViewController.m in Sources */,
 				14B5FBBE2557C840000DCAC2 /* ASDeviceDetailViewController.m in Sources */,
 				14B5FBB42557B8BC000DCAC2 /* ASDeviceModel.m in Sources */,
+				146BF2E2257C8C63000164B6 /* ASFirstSetPasswordVC.m in Sources */,
 				14B5FBBA2557BB42000DCAC2 /* ASDeviceDataManager.m in Sources */,
 				14D77DC5255FC273006BC81C /* ASOtherMineViewController.m in Sources */,
 				14AE9B04255198810087B4E1 /* ASFirstJoinVC.m in Sources */,
@@ -626,6 +636,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.as.ASLY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -649,6 +660,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.as.ASLY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

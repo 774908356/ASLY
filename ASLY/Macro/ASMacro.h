@@ -32,7 +32,7 @@
 
 #define kMainColor kColorHex(0x1296db)
 
-#define kNormalTextColor kColorHex(0x8a8a8a)
+#define kNormalTextColor kColorHex(0x000000)
 
 
 #define kScreenWidth [[UIScreen mainScreen] bounds].size.width
@@ -47,5 +47,7 @@
 
 
 #define kFirstJoinSuccess   @"kFirstJoinSuccess"
+
+#define kFirstSetPasswordSuccess @"kFirstSetPasswordSyccess"
 
 #endif /* ASMacro_h */

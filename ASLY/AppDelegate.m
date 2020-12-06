@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ASBaseTableBarVC.h"
 #import "ASFirstJoinVC.h"
+#import "ASFirstSetPasswordVC.h"
 @interface AppDelegate ()
 
 @end
@@ -18,16 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    UIViewController * rootVC = nil;
     
-  NSString * joinedStr =  [[NSUserDefaults standardUserDefaults] objectForKey:kFirstJoinSuccess] ;
-    if (joinedStr && joinedStr.length) {
-       rootVC = [ASBaseTableBarVC new] ;
-    }else{
-        rootVC = [ASFirstJoinVC new] ;
-    }
+
      self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        self.window.rootViewController = rootVC;
+        self.window.rootViewController = [ASFirstSetPasswordVC new];
         [self.window makeKeyAndVisible];
         
     

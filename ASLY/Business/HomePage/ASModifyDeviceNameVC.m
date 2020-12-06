@@ -93,6 +93,7 @@
        
         
         UITextField * textFeild = [[UITextField alloc] initWithFrame:CGRectZero] ;
+        [textFeild becomeFirstResponder] ;
         textFeild.placeholder = self.deviceModel.deviceName ;
         [textFeild addTarget:self action:@selector(textFeildValueChanged:) forControlEvents:UIControlEventEditingChanged] ;
         textFeild.delegate = self ;
@@ -153,6 +154,9 @@
                 }] ;
             }else{
                 UITextField * txField = [[UITextField alloc] initWithFrame:CGRectZero] ;
+                if (i == 1) {
+                    [txField becomeFirstResponder] ;
+                }
                 txField.tag = 20201111 + i - 1 ;
                 [txField addTarget:self action:@selector(textFeildValueChanged:) forControlEvents:UIControlEventEditingChanged] ;
                 txField.delegate = self ;

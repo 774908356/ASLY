@@ -91,7 +91,7 @@
                         make.top.offset(nextBtn.superview.jk_origin.y + nextBtn.superview.jk_height - 5) ;
                         make.right.offset(-15) ;
                         make.width.mas_equalTo(120);
-                        make.height.mas_equalTo(183) ;
+                        make.height.mas_equalTo(163) ;
                     }];
                     
                     UIView * firstView = nil ;
@@ -203,6 +203,7 @@
                     msgStr = @"删除之后再次连接需要重新输入密码" ;
                 }
                 UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom] ;
+                btn.jk_touchAreaInsets = UIEdgeInsetsMake(0, 40, 0, kScreenWidth) ;
                 [btn jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
                     UIAlertController * alert = [UIAlertController alertControllerWithTitle:alerTitleStr message:msgStr preferredStyle:UIAlertControllerStyleAlert] ;
                     UIAlertAction * action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
