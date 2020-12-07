@@ -68,6 +68,10 @@
         }
     }
     
+    UIButton * btn = [self.view viewWithTag:10010] ;
+    
+    btn.hidden = !_inputPassWordString.length ;
+    
 }
 
 
@@ -142,10 +146,15 @@
     }
     
     CGFloat itemBtnWidth = kScreenWidth / 3. ;
-    for (int i = 0 ; i < 10 ; i++) {
+    for (int i = 0 ; i < 11 ; i++) {
         UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom] ;
+        btn.tag = 10000 + i ;
         [btn addTarget:self action:@selector(numBtnTapped:) forControlEvents:UIControlEventTouchUpInside] ;
-        [btn setTitle:[NSString stringWithFormat:@"%d", i == 9 ? 0 : i + 1] forState:UIControlStateNormal] ;
+        if (i <= 9)[btn setTitle:[NSString stringWithFormat:@"%d", i == 9 ? 0 : i + 1] forState:UIControlStateNormal] ;
+        if (i == 10) {
+            [btn setImage:[UIImageNamed(@"AS_repeal_btn") jk_imageScaledToSize:CGSizeMake(25, 25)] forState:UIControlStateNormal] ;
+            btn.hidden = YES ;
+        }
         [btn setTitleColor:kMainColor forState:UIControlStateNormal]  ;
         [self.view addSubview:btn] ;
         [btn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -154,6 +163,9 @@
             make.top.equalTo(self.passwordView.mas_bottom).offset(70 * (i / 3) + 30) ;
             if (i == 9) {
                 make.left.offset(itemBtnWidth) ;
+            }else if (i == 10){
+                make.left.offset(itemBtnWidth * 2) ;
+                
             }else{
                 make.left.offset(itemBtnWidth * (i %3)) ;
             }
@@ -176,6 +188,12 @@
 
 -(void)numBtnTapped:(UIButton *)btn{
     
+    if (btn.tag == 10010) {
+      self.inputPassWordString = [self.inputPassWordString substringToIndex:self.inputPassWordString.length - 1] ;
+        
+        return;
+    }
+    
     if (self.inputPassWordString.length >= 6) return;
     
     NSString * oldInpuStr = self.inputPassWordString ;
@@ -195,13 +213,22 @@
         }else{
             if ([self.firstInputString isEqualToString:self.inputPassWordString]) {
                 //两次密码一致，下一步
+                
+                UIViewController * rootVC = nil;
+                
+              NSString * joinedStr =  [[NSUserDefaults standardUserDefaults] objectForKey:kFirstJoinSuccess] ;
+                if (joinedStr && joinedStr.length) {
+                   rootVC = [ASBaseTableBarVC new] ;
+                }else{
+                    rootVC = [ASFirstJoinVC new] ;
+                }
                 [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",self.firstInputString] forKey:kFirstSetPasswordSuccess] ;
-                [UIApplication sharedApplication].delegate.window.rootViewController = [ASFirstJoinVC new];
+                [UIApplication sharedApplication].delegate.window.rootViewController = rootVC;
                 
                 
             }else{
                 [[UIApplication sharedApplication].delegate.window jk_makeToast:self.isSetedPassword.length ? @"密码输入错误" : @"两次输入密码不一致" duration:2. position:JKToastPositionCenter] ;
-                self.inputPassWordString = @"" ;
+                //self.inputPassWordString = @"" ;
             }
         }
     }

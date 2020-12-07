@@ -50,6 +50,7 @@
 		14D77DC1255FBC5B006BC81C /* as_faceAnimal_middle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 14D77DBD255FBC5B006BC81C /* as_faceAnimal_middle.gif */; };
 		14D77DC5255FC273006BC81C /* ASOtherMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D77DC4255FC273006BC81C /* ASOtherMineViewController.m */; };
 		14D77DC9255FC950006BC81C /* ASUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D77DC8255FC950006BC81C /* ASUserModel.m */; };
+		14F5E720257E293900BE23AB /* AS_repeal_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 14F5E71F257E293900BE23AB /* AS_repeal_btn.png */; };
 		2BE52B33059DC990468AC675 /* Pods_ASLY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DF812CCF741374C3DEA75 /* Pods_ASLY.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,7 @@
 		14D77DC4255FC273006BC81C /* ASOtherMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASOtherMineViewController.m; sourceTree = "<group>"; };
 		14D77DC7255FC950006BC81C /* ASUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASUserModel.h; sourceTree = "<group>"; };
 		14D77DC8255FC950006BC81C /* ASUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASUserModel.m; sourceTree = "<group>"; };
+		14F5E71F257E293900BE23AB /* AS_repeal_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AS_repeal_btn.png; sourceTree = "<group>"; };
 		41C94350CFC737CCEC2D2F5B /* Pods-ASLY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASLY.release.xcconfig"; path = "Target Support Files/Pods-ASLY/Pods-ASLY.release.xcconfig"; sourceTree = "<group>"; };
 		54C46DCE9688D22BF8BB9D7A /* Pods-ASLY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASLY.debug.xcconfig"; path = "Target Support Files/Pods-ASLY/Pods-ASLY.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0DF812CCF741374C3DEA75 /* Pods_ASLY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASLY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,6 +278,7 @@
 				14D77DBD255FBC5B006BC81C /* as_faceAnimal_middle.gif */,
 				14D77DBA255FBC5A006BC81C /* as_faceAnimal_right.gif */,
 				14D77DBB255FBC5A006BC81C /* as_faceAnimal_up.gif */,
+				14F5E71F257E293900BE23AB /* AS_repeal_btn.png */,
 			);
 			path = Res;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				146BF2DE257C8BB8000164B6 /* 傲硕蓝牙.png in Resources */,
 				1486B9352550549800F127D8 /* tabBar_homePage_selected.png in Resources */,
 				1486B93A25505B2800F127D8 /* tabBar_Mine.png in Resources */,
+				14F5E720257E293900BE23AB /* AS_repeal_btn.png in Resources */,
 				1486B93925505B2800F127D8 /* tabBar_Mine_selected.png in Resources */,
 				1486B91225503DDF00F127D8 /* Assets.xcassets in Resources */,
 				141DD1032552F65E00A3A707 /* inputPassword_close_btn.png in Resources */,
@@ -636,7 +640,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.as.ASLY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -660,7 +664,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.as.ASLY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
